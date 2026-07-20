@@ -1,0 +1,1 @@
+Java allows for decisions to be made based on truths. These loops and switch cases determine which decisions will be made and output accordingly.
