@@ -1,0 +1,1 @@
+The Java compiler converts the bytecode into readable instructions for the computer to read and output.
