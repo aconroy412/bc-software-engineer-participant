@@ -1,0 +1,1 @@
+All of the classes with strings are loaded before my source code even runs to prepare for any string related uses.
