@@ -1,0 +1,1 @@
+The else-if order matters because the code is read from top to bottom. if score >= 70 was above score >= 80, then the score would be C before it has to chance to check if score is B.
