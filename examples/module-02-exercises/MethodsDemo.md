@@ -1,0 +1,1 @@
+Methods with the same name but different parameters are allowed. Because methods have metadata about their parameters, java knows to differentiate these at runtime.
