@@ -1,0 +1,1 @@
+The new keyword creates a person object on the heap while the reference is on the stack.
