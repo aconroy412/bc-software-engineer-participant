@@ -1,0 +1,1 @@
+Scanner.nextInt() method only consumes the integer, it does not consume the \n character left over by the enter key on the user's keyboard.This extra Scanner.nextLine() consumes this leftover \n character.
