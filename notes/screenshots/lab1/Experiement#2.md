@@ -1,0 +1,1 @@
+Java is case sensitive and a developer should know the correct syntax for executing files.
