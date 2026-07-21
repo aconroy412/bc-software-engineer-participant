@@ -1,0 +1,1 @@
+This lab had us working with packages to concisely structure our files. THe scanner class allowed us to take user input and store what we inputted into an array of objects. 
