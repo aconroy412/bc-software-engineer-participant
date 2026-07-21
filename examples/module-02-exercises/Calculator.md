@@ -1,0 +1,1 @@
+Integers do not store fractional values and anything after the leading decimal is truncated therefore quotients would be incorrect.
