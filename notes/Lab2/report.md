@@ -1,1 +1,1 @@
-This lab had us working with packages to concisely structure our files. THe scanner class allowed us to take user input and store what we inputted into an array of objects. 
+This lab had us working with packages to concisely structure our files. THe scanner class allowed us to take user input and store what we inputted into an array of objects. THe loops allowed us to handle user error and check for mistakes.
