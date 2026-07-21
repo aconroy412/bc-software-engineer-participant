@@ -1,0 +1,1 @@
+Parsing nextLines is generally safer as it is more straightforward and will automatically convert any decimals to int and vice versa.
