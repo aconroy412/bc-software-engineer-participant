@@ -20,7 +20,7 @@ public class CurrentAccount extends Account implements Printable{
 
     @Override
     protected void displayAccount() {
-        System.out.printf("Type: %d, Number: %s, Name: %s, Balance: %.2f, Charges: %.2f%n",
+        System.out.printf("Type: %s, Number: %d, Name: %s, Balance: %.2f, Charges: %.2f%n",
             this.getAccountType(), super.getAccountNumber(), super.getCustomer().getName(), super.getBalance(), this.calculateCharges()
          );
     }

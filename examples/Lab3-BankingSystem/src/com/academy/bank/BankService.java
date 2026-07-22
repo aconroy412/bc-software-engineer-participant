@@ -38,6 +38,7 @@ public class BankService {
                     System.out.println("Customer ID already in use.");
                     continue;
                 }
+                validID = true;
             }
             catch (NumberFormatException e) {
                 System.out.println("Please print a valid number.");
@@ -78,8 +79,7 @@ public class BankService {
         SavingsAccount created = new SavingsAccount(nextAccountNumber++, balance, cust, interest);
 
         accounts[accountCount++] = created;
-        System.out.println("Successfully created account : ");
-        created.printDetails();
+        System.out.println("Successfully created account : " + (accountCount - 1) +  " " + balance + " " + id + " " + interest);
     }
 
     public void createCurrentAccount(int id, double balance, double charge) {
@@ -90,10 +90,63 @@ public class BankService {
             return;
         }
 
-        Account created = new SavingsAccount(nextAccountNumber++, balance, cust, charge);
+        Account created = new CurrentAccount(nextAccountNumber++, balance, cust, charge);
 
         accounts[accountCount++] = created;
         System.out.println("Successfully created account : " + (accountCount - 1) +  " " + balance + " " + id + " " + charge);
+    }
+
+    public void deposit(int accountNumber, double amount) {
+        Account acc = null;
+
+        for (int i = 0; i < accountCount; i++) {
+            if (accountNumber == accounts[i].getAccountNumber())
+                acc = accounts[i];
+        }
+
+        if (acc == null) {
+            System.out.println("No account by that number found");
+            return;
+        }
+
+        acc.deposit(amount);
+
+        transactions[transactionCount++] = new Transaction(nextTransactionNumber++, amount, acc.getAccountType(), "today", acc.getAccountNumber());
+
+        System.out.println("Balance updated: " + acc.getBalance());
+    }
+
+    public void withdraw(int accountNumber, double amount) {
+        Account acc = null;
+
+        for (int i = 0; i < accountCount; i++) {
+            if (accountNumber == accounts[i].getAccountNumber())
+                acc = accounts[i];
+        }
+
+        if (acc == null) {
+            System.out.println("No account by that number found");
+            return;
+        }
+
+        acc.withdraw(amount);
+
+        //update transation
+        transactions[transactionCount++] = new Transaction(nextTransactionNumber++, amount, acc.getAccountType(), "today", acc.getAccountNumber());
+
+        System.out.println("Balance updated: " + acc.getBalance() + "Fee: " + acc.calculateCharges());
+    }
+
+    public void displayAccounts() {
+        for (int i = 0; i < accountCount; i++) {
+            accounts[i].displayAccount();
+        }
+    }
+
+    public void displayCustomers() {
+        for (int i = 0; i < customerCount; i++) {
+            customers[i].printDetails();
+        }
     }
 
     // helper method

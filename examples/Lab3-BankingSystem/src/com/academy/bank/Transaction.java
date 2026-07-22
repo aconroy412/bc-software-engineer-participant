@@ -5,9 +5,9 @@ public class Transaction {
     private double amount;
     private String type;
     private String date;
-    private String accountNumber;
+    private int accountNumber;
 
-    public Transaction(int transactionId, double amount, String type, String date, String accountNumber) {
+    public Transaction(int transactionId, double amount, String type, String date, int accountNumber) {
         this.transactionId = transactionId;
         this.amount = amount;
         this.type = type;
@@ -41,7 +41,7 @@ public class Transaction {
         return this.date;
     }
 
-    public String getAccountNumber() {
+    public int getAccountNumber() {
         return this.accountNumber;
     }
 }

@@ -42,7 +42,7 @@ public abstract class Account {
         }
     }
 
-    public boolean withdrawl (double amount) {
+    public boolean withdraw (double amount) {
         // get the real withdrawl
         double trueCharge = amount + calculateCharges();
 
