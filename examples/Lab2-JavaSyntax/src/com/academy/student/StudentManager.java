@@ -38,15 +38,21 @@ public class StudentManager {
             }
     
             // Get id
-            String s;
-            do {
-
+            int id = 0;
+            boolean validId = false;
+            while (!validId || id < 0){
                 System.out.println("Please tell me the ID you'd like to assign this student: ");
-                s = scanner.nextLine();
+                try {
+                    id = Integer.parseInt(scanner.nextLine());
+                    validId = true;
+                }
+                catch (NumberFormatException e) {
+                    System.out.println("Please enter a valid positive number");
+                }
+
             }
-            while (!s.matches("\\d+"));
             
-            int id = Integer.parseInt(s);
+            
     
             // check if ID exists O(n)
             for (int i = 0; i < studentCount; i++) {
@@ -72,19 +78,18 @@ public class StudentManager {
             while(course.isBlank() || course.isEmpty());
     
 
-            double marks;
+            double marks = 0.0;
+            boolean validDouble = false;
+            while (!validDouble || (marks < 0.0 || marks > 100.00)){
 
-            do {
-
-                System.out.println("What is their mark (grade) (0 - 100.00");
-                s = scanner.nextLine();
-            }
-            while (!s.matches("\\d+(\\.\\d+)?"));
-            
-            marks = Double.parseDouble(s);
-            if (marks < 0.0 || marks > 100.00) {
-                System.out.println("Invalid marks given, rejected!");
-                return false;
+                System.out.println("What is their mark (grade) (0 - 100.00)");
+                try {
+                    marks = Double.parseDouble(scanner.nextLine());
+                    validDouble = true;
+                }
+                catch(NumberFormatException e) {
+                    System.out.println("Enter a valid fractional value please");
+                }
             }
 
             Student stu = new Student(id, name, course, marks);
