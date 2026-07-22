@@ -37,7 +37,7 @@ public class StudentManager {
                 return false;
             }
     
-            // Get id
+            // Get id make sure it is a valid id
             int id = 0;
             boolean validId = false;
             while (!validId || id < 0){
@@ -62,6 +62,7 @@ public class StudentManager {
                 }
             }
     
+            // get the name and have it not blank
             String name;
             do {
                 System.out.println("What is the student's name?: ");
@@ -69,6 +70,7 @@ public class StudentManager {
             }
             while(name.isBlank() || name.isEmpty());
     
+            // get the course name and make it not blank
             String course;
             do {
 
@@ -78,6 +80,7 @@ public class StudentManager {
             while(course.isBlank() || course.isEmpty());
     
 
+            // get the marks make sure that it is a valid double
             double marks = 0.0;
             boolean validDouble = false;
             while (!validDouble || (marks < 0.0 || marks > 100.00)){
@@ -94,6 +97,7 @@ public class StudentManager {
 
             Student stu = new Student(id, name, course, marks);
 
+            // add to array
             students[studentCount] = stu;
             studentCount++;
             System.out.println("Student Added Successfully");
