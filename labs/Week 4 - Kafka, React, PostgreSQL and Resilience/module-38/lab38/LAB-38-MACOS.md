@@ -1,0 +1,83 @@
+# Lab 38: PostgreSQL SQL and CRM Query Performance — DBMS_XPLAN, Indexes, Sargable Predicates — macOS
+
+**OS:** macOS  
+**Primary IDE:** IntelliJ IDEA Community Edition  
+**Optional IDE:** VS Code  
+**Shell:** macOS Terminal (zsh)  
+**Stack hint:** JDK 21 · Maven 3.9+ · Node 22 (React labs) · shared Kafka/PostgreSQL from Week 4 · IntelliJ  
+**Full lab steps:** [LAB-38-GUIDE.md](LAB-38-GUIDE.md)  
+**Other OS:** [Windows guide](LAB-38-WINDOWS.md) · [IDE conventions](../../../Week%201%20-%20Java%20and%20JVM%20Foundations/_IDE-CONVENTIONS.md)
+
+## Prerequisites (macOS)
+
+- [Lab 0 (macOS)](../../../Week%201%20-%20Java%20and%20JVM%20Foundations/module-00/lab0/LAB-0-MACOS.md) complete (JDK 21, Maven when needed, Git)
+- IntelliJ IDEA Community with **Project SDK 21**
+- Optional: VS Code + Extension Pack for Java
+- Instructor shared Kafka / PostgreSQL credentials when this lab needs them ([FINAL-SETUP](../../../FINAL-SETUP-README.md))
+
+## Open this lab in IntelliJ (primary)
+
+1. Start **IntelliJ IDEA Community**.
+2. **File → Open…** → `~/java-bootcamp` (Lab 0 workspace root — same folder every lab).  
+   If `examples/lab38-crm` does not exist yet, create it as the lab GUIDE describes; keep the workspace open at `~/java-bootcamp`.
+3. Trust the project if prompted.
+4. **File → Project Structure → Project** → SDK = **21**, language level **21**.
+5. For React labs, open or focus the `crm-ui` / `frontend` folder when editing the SPA.
+6. **View → Tool Windows → Terminal** → `cd ~/java-bootcamp` then `cd examples/lab38-crm` when ready.
+
+## Optional: VS Code
+
+1. **File → Open Folder…** → `~/java-bootcamp` (same Lab 0 workspace).
+2. Confirm **Extension Pack for Java** (and Maven for Java when needed) are installed.
+3. **Terminal → New Terminal** → `cd examples/lab38-crm` for this lab’s commands.
+
+## Paths (macOS)
+
+| Item | macOS |
+| ---- | ----- |
+| Workspace (open in IDE) | `~/java-bootcamp` |
+| This lab project | `~/java-bootcamp/examples/lab38-crm` |
+| Evidence / screenshots | `~/java-bootcamp/notes/screenshots/lab-38` |
+| Shell | zsh / bash inside IntelliJ |
+| Path style | Forward slashes; case-sensitive |
+
+```bash
+cd ~/java-bootcamp
+# Lab 0 layout: evidence at workspace root; code under examples/
+mkdir -p notes/screenshots/lab-38
+cd examples/lab38-crm
+```
+
+### Commands this lab typically uses
+
+```text
+psql …          # as the lab GUIDE describes
+# Maven only if this lab folder has a pom.xml
+```
+
+## Run configurations (IntelliJ)
+
+1. Follow SQL / `psql` steps in the GUIDE (working directory `examples/lab38-crm`).
+2. Import Maven only if this lab folder has a `pom.xml`.
+3. **Run → Edit Configurations…** → set **Working directory** to `examples/lab38-crm` when scripts use relative paths.
+
+## Do the lab
+
+Complete **every step** in **[LAB-38-GUIDE.md](LAB-38-GUIDE.md)**.  
+Wherever that guide shows `~/java-bootcamp`, on macOS use `~/java-bootcamp`. Prefer IntelliJ for Java editing and runs; use VS Code only if you already prefer it.
+
+## Evidence / screenshots
+
+Save screenshots under `~/java-bootcamp/notes/screenshots/lab-38` (Lab 0 workspace layout). Capture IntelliJ (project tree + Run/Terminal) on macOS. Redact passwords, tokens, and kubeconfig contents.
+
+## Pass criteria
+
+_Mark each row **Pass** or **Fail** in your lab notes (GitHub markdown files are not interactive checklists)._
+
+| # | Confirm | Your notes |
+| - | ------- | ---------- |
+| 1 | Workspace `~/java-bootcamp` open in IntelliJ with SDK **21** | Pass / Fail |
+| 2 | Lab project under `examples/lab38-crm` as in [LAB-38-GUIDE.md](LAB-38-GUIDE.md) | Pass / Fail |
+| 3 | Lab pass criteria / deliverables in the GUIDE are complete | Pass / Fail |
+| 4 | Commands above succeed in the IntelliJ terminal (or as the lab specifies) | Pass / Fail |
+| 5 | Screenshots (if required) saved under `notes/screenshots/lab-38/` | Pass / Fail |
