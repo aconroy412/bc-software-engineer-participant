@@ -24,25 +24,10 @@ public class BankService {
     }
 
     public void createCustomer() {
-        int id = 0;
-        boolean validID = false;
-        while (!validID || id < 0) {
-            if (id < 0) {
-                System.out.println("Please enter a positive integer.");
-            }
-            System.out.println("Hello, what should this customer's ID be? : ");
-            try {   
-                id = Integer.parseInt(scanner.nextLine());
-                if (findCustomer(id) != null) {
-                    id = 0;
-                    System.out.println("Customer ID already in use.");
-                    continue;
-                }
-                validID = true;
-            }
-            catch (NumberFormatException e) {
-                System.out.println("Please print a valid number.");
-            }
+        String id = "";
+        while (id.isEmpty() || id.isBlank()) {
+            System.out.println("Please enter a name for the customer: ");
+            id = scanner.nextLine();
         }
 
         String name = "";
@@ -68,7 +53,7 @@ public class BankService {
         System.out.println("Customer Created Successfully!");
     }
 
-    public void createSavingsAccount(int id, double balance, double interest) {
+    public void createSavingsAccount(String id, double balance, double interest) {
         Customer cust = findCustomer(id);
         // check if customer exists
         if (cust == null) {
@@ -82,7 +67,7 @@ public class BankService {
         System.out.println("Successfully created account : " + (accountCount - 1) +  " " + balance + " " + id + " " + interest);
     }
 
-    public void createCurrentAccount(int id, double balance, double charge) {
+    public void createCurrentAccount(String id, double balance, double charge) {
         Customer cust = findCustomer(id);
         // check if customer exists
         if (cust == null) {
@@ -140,20 +125,22 @@ public class BankService {
     public void displayAccounts() {
         for (int i = 0; i < accountCount; i++) {
             accounts[i].displayAccount();
+            System.out.println("----------------------------------");
         }
     }
 
     public void displayCustomers() {
         for (int i = 0; i < customerCount; i++) {
             customers[i].printDetails();
+            System.out.println("----------------------------------");
         }
     }
 
     // helper method
-    private Customer findCustomer(int id) {
+    private Customer findCustomer(String id) {
         // scan for the id O(n)
         for (int i = 0; i < customerCount; i++) {
-            if (customers[i].getCustomerId() == id){
+            if (customers[i].getCustomerId().equals(id)){
                 return customers[i];
             }
         }

@@ -21,9 +21,13 @@ public class SavingsAccount extends Account implements Printable{
     // implement display account
     @Override
     protected void displayAccount() {
-        System.out.printf("Type: %s, Number: %d, Name: %s, Balance: %.2f, InterestRate: %.2f%n",
-            this.getAccountType(), super.getAccountNumber(), super.getCustomer().getName(), super.getBalance(), this.calculateInterest()
-         );
+        System.out.printf("%s%nAccount Number : %d%nCustomer : %s%nBalance : %.0f%nInterest Rate : %.0f%%%nInterest : %.0f%n",
+        this.getAccountType(),
+        super.getAccountNumber(),
+        super.getCustomer().getName(),
+        super.getBalance(),
+        this.calculateInterest(), 
+        this.calculateInterest());
     }
 
     @Override

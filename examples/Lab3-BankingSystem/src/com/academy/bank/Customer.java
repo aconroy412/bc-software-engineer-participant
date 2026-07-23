@@ -2,12 +2,12 @@ package com.academy.bank;
 
 public class Customer implements Printable{
 
-    private int customerId;
+    private String customerId;
     private String name;
     private String email;
     private String phone;
 
-    public Customer(int cID, String name, String email, String phone) {
+    public Customer(String cID, String name, String email, String phone) {
         this.customerId = cID;
         this.name = name;
         this.email = email;
@@ -27,7 +27,7 @@ public class Customer implements Printable{
         this.phone = phone;
     }
 
-    public int getCustomerId() {
+    public String getCustomerId() {
         return this.customerId;
     }
 
@@ -45,7 +45,8 @@ public class Customer implements Printable{
     
 
     private void display() {
-        System.out.printf("Customer: %s, Email: %s, Phone: %s", this.name, this.email, this.phone);
+        System.out.printf("Customer ID : %s%nName : %s%nEmail : %s%nPhone : %s%n", 
+        this.customerId, this.name, this.email, this.phone);
     }
 
 

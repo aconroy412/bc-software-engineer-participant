@@ -12,16 +12,19 @@ public class Main {
         while (true) {
 
             // Menu
-            System.out.println("\n===== Bank Management System =====");
-            System.out.println("1. Create Customer");
-            System.out.println("2. Create Savings Account");
-            System.out.println("3. Create Current Account");
-            System.out.println("4. Deposit");
-            System.out.println("5. Withdraw");
-            System.out.println("6. Display Accounts");
-            System.out.println("7. Display Customers");
-            System.out.println("8. Exit");
-            System.out.print("Enter your choice: ");
+            System.out.println("================================");
+            System.out.println("Bank Management System");
+            System.out.println("================================");
+            System.out.println("1 Create Customer");
+            System.out.println("2 Create Savings Account");
+            System.out.println("3 Create Current Account");
+            System.out.println("4 Deposit");
+            System.out.println("5 Withdraw");
+            System.out.println("6 Display Accounts");
+            System.out.println("7 Display Customers");
+            System.out.println("8 Exit");
+            
+            System.out.print("Choice : ");
 
             int choice;
 
@@ -36,28 +39,19 @@ public class Main {
 
                 case 1:
                     bankService.createCustomer();
+                    System.out.println("----------------------------------");
                     break;
 
                 case 2:{
 
-                    int id = 0;
-                    boolean validID = false;
-                    while (!validID || id < 0) {
-                        if (id < 0) {
-                            System.out.println("Please enter a positive integer.");
-                        }
-                        System.out.println("Hello, what should this customer's ID be? : ");
-                        try {   
-                            id = Integer.parseInt(scanner.nextLine());
-                            validID = true;
-                        }
-                        catch (NumberFormatException e) {
-                            System.out.println("Please print a valid number.");
-                        }
+                    String id = "";
+                    while (id.isEmpty() || id.isBlank()) {
+                        System.out.println("Please enter a name for the customer: ");
+                        id = scanner.nextLine();
                     }
 
                     double balance = 0.0;
-                    validID = false;
+                    boolean validID = false;
                     while (!validID || balance < 0) {
                         if (balance < 0.0) {
                             System.out.println("Please enter a positive number.");
@@ -89,29 +83,20 @@ public class Main {
                     }
 
                     bankService.createSavingsAccount(id, balance, interest);
+                    System.out.println("----------------------------------");
                     break;
                 }
 
                 case 3:
                     {
-                        int id = 0;
-                        boolean validID = false;
-                        while (!validID || id < 0) {
-                            if (id < 0) {
-                                System.out.println("Please enter a positive integer.");
-                            }
-                            System.out.println("Hello, what should this customer's ID be? : ");
-                            try {   
-                                id = Integer.parseInt(scanner.nextLine());
-                                validID = true;
-                            }
-                            catch (NumberFormatException e) {
-                                System.out.println("Please print a valid number.");
-                            }
+                        String id = "";
+                        while (id.isEmpty() || id.isBlank()) {
+                            System.out.println("Please enter a name for the customer: ");
+                            id = scanner.nextLine();
                         }
 
                         double balance = 0.0;
-                        validID = false;
+                        boolean validID = false;
                         while (!validID || balance < 0) {
                             if (balance < 0.0) {
                                 System.out.println("Please enter a positive number.");
@@ -143,6 +128,7 @@ public class Main {
                         }
 
                         bankService.createCurrentAccount(id, balance, charge);
+                        System.out.println("----------------------------------");
                         break;
                     }
 
@@ -181,6 +167,7 @@ public class Main {
                         }
 
                         bankService.deposit(account, balance);
+                        System.out.println("----------------------------------");
                         break;
                     }
 
@@ -219,15 +206,18 @@ public class Main {
                         }
 
                         bankService.withdraw(account, balance);
+                        System.out.println("----------------------------------");
                         break;
                     }
 
                 case 6:
                     bankService.displayAccounts();
+                    System.out.println("----------------------------------");
                     break;
 
                 case 7:
                     bankService.displayCustomers();
+                    System.out.println("----------------------------------");
                     break;
 
                 case 8:
