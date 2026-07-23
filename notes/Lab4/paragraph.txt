@@ -1,0 +1,4 @@
+Leak is different from fix because leak allocates 1 million employees into a list but never clears the list.
+THerefore, the memory from that list is stuck in limbo. It cannot be executed by the garbage collector and the memory used keeps growing and growing.
+Fix, on the other hand, clears the list that it creates and doesn't keep it within an unrelated object.
+Therefore, the memory can be reclaimed by the garbage collector and the used memory stay stable.
