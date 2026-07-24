@@ -5,7 +5,12 @@ import java.util.List;
 public class IteratorDemo {
     public static void main(String[] args) {
         // TODO: wrap List.of(...) in new ArrayList<>(...) so removal is allowed
-        List<String> titles = new ArrayList<>();
+        List<String> titles = new ArrayList<>(List.of(
+            "Java 21",
+            "Deprecated Java 8",
+            "Clean Code",
+            "Deprecated API Guide"
+        ));
 
         // TODO: obtain an Iterator<String> from titles
         Iterator<String> iterator = titles.iterator();
