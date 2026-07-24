@@ -1,0 +1,12 @@
+Lab 5 encouraged us to use various data structures to build a library management sysetem.
+For this, we had to choose what data structures would work the best for the data stored
+
+There are thre main categories of data structures to choose from, lists, sets and maps.
+
+Individuals, classes which need to be accessed rather frequently were given arrays (ArrayList<Book> and ArrayList<Member>)
+
+Simple strings which call for multiple adds and deletes were given Sets
+The categories, which need to be sorted, were given a TreeSet
+
+Maps were for key-value pairs, each entry needs two different sets of data, this was to quantify the qualitative date types.
+
