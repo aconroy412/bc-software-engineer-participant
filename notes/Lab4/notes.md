@@ -6,8 +6,6 @@
 ## Checkpoint B
 1. Pass
 2. Pass
-3. Pass
-4. Pass
 
 # Checkpoint C
 1. Pass
@@ -19,7 +17,6 @@
 1. Pass
 2. Pass
 3. Pass
-4. Pass
 
 # Success
 1. Pass
