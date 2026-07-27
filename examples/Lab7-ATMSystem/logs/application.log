@@ -1,0 +1,17 @@
+2026-07-27 14:53:14 INFO Login successful for account 1001
+2026-07-27 14:53:48 ERROR Requested 20000.0 Balance 11000.0
+InsufficientFundsException Transaction Failed. Insufficient Account Balance.
+[com.academy.atm.Account.withdraw(Account.java:50), com.academy.atm.ATMService.lambda$withdraw$1(ATMService.java:89), com.academy.atm.ATMService.executeTransaction(ATMService.java:191), com.academy.atm.ATMService.withdraw(ATMService.java:86), com.academy.atm.Main.main(Main.java:34)]
+2026-07-27 14:55:02 ERROR Amount must be greater than zero.
+InvalidAmountException Amount must be greater than zero.
+[com.academy.atm.Account.deposit(Account.java:39), com.academy.atm.ATMService.lambda$deposit$0(ATMService.java:78), com.academy.atm.ATMService.executeTransaction(ATMService.java:191), com.academy.atm.ATMService.deposit(ATMService.java:75), com.academy.atm.Main.main(Main.java:33)]
+2026-07-27 14:55:16 ERROR Invalid numeric input during Deposit
+InputMismatchException Invalid numeric input.
+[com.academy.atm.ATMService.readAmount(ATMService.java:260), com.academy.atm.ATMService.lambda$deposit$0(ATMService.java:77), com.academy.atm.ATMService.executeTransaction(ATMService.java:191), com.academy.atm.ATMService.deposit(ATMService.java:75), com.academy.atm.Main.main(Main.java:33)]
+2026-07-27 14:56:00 ERROR Invalid numeric input during Deposit
+InputMismatchException Invalid numeric input.
+[com.academy.atm.ATMService.readAmount(ATMService.java:260), com.academy.atm.ATMService.lambda$deposit$0(ATMService.java:77), com.academy.atm.ATMService.executeTransaction(ATMService.java:191), com.academy.atm.ATMService.deposit(ATMService.java:75), com.academy.atm.Main.main(Main.java:33)]
+2026-07-27 14:56:06 INFO Deposit completed successfully | Execution Time: 1688 ms
+2026-07-27 15:01:20 ERROR Account not found: 9999
+AccountNotFoundException Account not found: 9999
+[com.academy.atm.ATMService.findAccount(ATMService.java:243), com.academy.atm.ATMService.login(ATMService.java:48), com.academy.atm.Main.main(Main.java:32)]
