@@ -1,7 +1,7 @@
 Which design decision most affected build correctness?
-    Dependency versions are the most important design decision. Without, the system has no idea how to 
+    Dependency versions are the most important design decision. Without it, the 
 Which failure was hardest to diagnose?
-    
+
 What evidence proves the lifecycle walk was real (not only package once)?
 What breaks first at ten times the dependency count?
 Which concern should move to shared infrastructure (artifact repository, CI cache)?
