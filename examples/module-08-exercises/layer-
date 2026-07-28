@@ -1,0 +1,9 @@
+| Task | Layer |
+| ---- | ----- |
+| Accept future create-customer input | |
+| Reject blank customer name | |
+| Find customer by ID | |
+| Represent customer ID/name/status | |
+| Represent create request fields | |
+| Define customer-not-found failure | |
+| Wire application objects later | |
