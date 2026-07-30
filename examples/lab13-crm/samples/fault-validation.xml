@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- TODO: SOAP Fault for validation failure -->
+ <!-- blank fullName message including lab-request-001 -->
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+  <Body>
+    <Fault>
+      <faultcode>soapenv:Client</faultcode>
+      <faultstring>Validation failed for request (correlationId=lab-request-001)</faultstring>
+      <detail>
+        <errorCode>VALIDATION_FAILED</errorCode>
+        <validationErrors>
+          <field>fullName</field>
+          <message>Full name is required</message>
+        </validationErrors>
+      </detail>
+    </Fault>
+  </Body>
+</Envelope>

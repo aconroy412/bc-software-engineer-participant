@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- TODO: success response with CUS-1001 -->
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+  <Body>
+  <createCustomerResponse xmlns="http://northstar.com/crm/customer">
+    <customer>
+      <customerId>CUS-1001</customerId>
+      <fullName>Amina Khan</fullName>
+      <email>amina.khan@example.com</email>
+      <phone>+1-555-123-4567</phone>
+      <status>ACTIVE</status>
+    </customer>
+  </createCustomerResponse>
+  </Body>
+</Envelope>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/"
+          xmlns:cus="http://northstar.com/crm/customer">
+  <Body>
+    <cus:updateCustomerResponse>
+    <cus:customerId>CUS-1002</cus:customerId>
+    <cus:fullName>Ravi Singh</cus:fullName>
+    <cus:email>ravi.sing@example.com</cus:email>
+    <cus:phone>+1-555-987-6543</cus:phone>
+    <cus:status>ACTIVE</cus:status>
+    <cus:correlationId>lab-request-001</cus:correlationId>
+    </cus:updateCustomerResponse>
+  </Body>
+</Envelope>
