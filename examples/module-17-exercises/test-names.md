@@ -1,0 +1,3 @@
+createCustomer_whenValid_thenPersistsActive
+activateCustomer_whenProspect_thenBecomesActive
+createCustomer_whenBlankEmail_thenRejects
