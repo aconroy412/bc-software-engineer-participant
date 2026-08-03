@@ -1,7 +1,8 @@
-package com.northstar.crm.service;
+package com.northstar.crm;
 
 import com.northstar.crm.entity.Customer;
 import com.northstar.crm.entity.CustomerStatus;
+import com.northstar.crm.service.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
