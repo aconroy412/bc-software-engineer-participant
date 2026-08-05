@@ -48,8 +48,9 @@ class CustomerUiIT {
 
     @Test
     void createCustomerViaUi() {
-        var page = new CustomerFormPage(driver, wait).open(baseUrl);
+        // TODO: Page Object open → fill CUS-2001 → submit → assert result contains CUS-2001
+        var page = new CustomerFormPage(driver, wait).open("http://localhost:" + port);
         page.fill("CUS-1001", "Amina Khan", "ACTIVE").submit();
-        assertThat(page.resultText()).contains("CUS-1001").contains("Amina Khan");
+        assertEquals(page.resultText(), "CUS-1001", "Amina Khan");
     }
 }

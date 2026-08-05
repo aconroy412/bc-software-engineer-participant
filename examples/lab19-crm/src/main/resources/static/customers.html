@@ -28,22 +28,17 @@
         status: document.querySelector('[data-testid="status"]').value
       };
       // TODO: fetch POST and write response text to #result
-      fetch('/api/customers', {
+      const response = await fetch('/api/customers', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'X-Correlation-Id': 'lab-request-001'
+
         },
         body: JSON.stringify(body)
       })
-      .then(response => response.json())
-      .then(data => {
-        document.getElementById('result').textContent = JSON.stringify(data, null, 2);
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        document.getElementById('result').textContent = 'Error creating customer';
-      });
+      const result = await response.json();
+      document.getElementById('result').textContent = JSON.stringify(result);
     });
   </script>
 </body>
