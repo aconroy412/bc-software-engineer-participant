@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("/api/customers")
 public class CustomerController {
@@ -33,5 +35,10 @@ public class CustomerController {
         // TODO: Call customers.findById(id) and return ResponseEntity with 200 or 404 status
         return customers.findById(id).map(ResponseEntity::ok)
         .orElse(ResponseEntity.notFound().build());
+    }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<Map<String, String>> handleValidation(IllegalArgumentException ex) {
+        return ResponseEntity.badRequest().body(Map.of("error", ex.getMessage()));
     }
 }

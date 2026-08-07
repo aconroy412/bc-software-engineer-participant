@@ -17,6 +17,9 @@ public class CustomerService {
         if (customer.getCustomerId() == null || customer.getCustomerId().isBlank()) {
             throw new IllegalArgumentException("customerId required [" + correlationId + "]");
         }
+        if (customer.getFullName() == null || customer.getFullName().isBlank()) {
+            throw new IllegalArgumentException("Full name required [" + correlationId + "]");
+        }
         return repository.save(customer);
     }
 

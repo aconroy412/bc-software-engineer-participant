@@ -13,12 +13,17 @@
     <label>ID <input name="customerId" data-testid="customer-id"/></label>
     <label>Name <input name="fullName" data-testid="full-name"/></label>
     <label>Email <input name="email" data-testid="email"/></label>
-    <label>Status <input name="status" data-testid="status" value="PROSPECT"/></label>
-    <button type="submit" data-testid="submit-customer">Create</button>
+    <label>Status
+      <select name="status" data-testid="status">
+        <option value="PROSPECT">PROSPECT</option>
+        <option value="ACTIVE">ACTIVE</option>
+        <option value="INACTIVE">INACTIVE</option>
+      </select>
+    </label>
+    <button type="submit" data-testid="submit">Create</button>
   </form>
-  <pre data-testid="create-result" id="result"></pre>
+  <pre data-testid="result" id="result"></pre>
   <script>
-    // TODO: POST /api/customers with X-Correlation-Id: lab-request-001; show JSON in #result
     document.getElementById('customer-form').addEventListener('submit', async (e) => {
       e.preventDefault();
       const body = {
@@ -27,16 +32,14 @@
         email: document.querySelector('[data-testid="email"]').value,
         status: document.querySelector('[data-testid="status"]').value
       };
-      // TODO: fetch POST and write response text to #result
       const response = await fetch('/api/customers', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'X-Correlation-Id': 'lab-request-001'
-
         },
         body: JSON.stringify(body)
-      })
+      });
       const result = await response.json();
       document.getElementById('result').textContent = JSON.stringify(result);
     });

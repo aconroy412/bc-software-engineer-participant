@@ -16,7 +16,8 @@ public class CustomerFormPage {
     public CustomerFormPage(WebDriver d, WebDriverWait w) { driver = d; wait = w; }
 
     public CustomerFormPage open(String baseUrl) {
-        driver.get(baseUrl + "/customers.html");
+        String url = baseUrl.endsWith("/customers.html") ? baseUrl : baseUrl + "/customers.html";
+        driver.get(url);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[data-testid=customer-id]")));
         return this;
     }
@@ -29,7 +30,7 @@ public class CustomerFormPage {
         return this;
     }
     public void submit() {
-        driver.findElement(By.cssSelector("[data-testid=submit-customer]")).click();
+        driver.findElement(By.cssSelector("[data-testid=submit]")).click();
     }
 
     public String resultText() {
