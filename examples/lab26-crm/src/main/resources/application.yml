@@ -2,6 +2,8 @@ spring:
   application:
     name: northstar-crm
   # TODO: set a default profile comment; do not hard-code prod 
+  profiles:
+    default: prod
 server:
   port: 8080
 northstar:

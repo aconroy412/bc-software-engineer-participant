@@ -2,7 +2,12 @@ package com.northstar.crm;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
+import com.northstar.crm.config.NorthstarIntegrationProperties;
+
+
+@EnableConfigurationProperties(NorthstarIntegrationProperties.class)
 @SpringBootApplication
 public class CrmApplication {
   public static void main(String[] args) {
