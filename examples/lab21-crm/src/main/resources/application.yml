@@ -4,7 +4,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,metrics,info,prometheus
+        include: "*"
   endpoint:
     health:
       probes:

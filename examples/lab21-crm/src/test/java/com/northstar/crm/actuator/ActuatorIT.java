@@ -50,11 +50,11 @@ class ActuatorIT {
     void createMetricAppearsAfterTraffic() {
         // TODO: POST/GET traffic then GET /actuator/metrics/crm.customer.create
         Customer customer = new Customer("CUS-123", "John Doe", "john.doe@example.com", "ACTIVE");
-        ResponseEntity<String> postResponse = rest.postForEntity("http://localhost:" + port + "/api/customers/", customer, String.class);
+        ResponseEntity<String> postResponse = rest.postForEntity("http://localhost:" + port + "/api/customers", customer, String.class);
         ResponseEntity<String> getResponse = rest.getForEntity("http://localhost:" + port + "/api/customers/CUS-123", String.class);
         ResponseEntity<String> metricsResponse = rest.getForEntity("http://localhost:" + port + "/actuator/metrics/crm.customer.create", String.class);
         
-        assertEquals(HttpStatus.OK, postResponse.getStatusCode());
+        assertEquals(HttpStatus.CREATED, postResponse.getStatusCode());
         assertEquals(HttpStatus.OK, getResponse.getStatusCode());
         assertEquals(HttpStatus.OK, metricsResponse.getStatusCode());
 
