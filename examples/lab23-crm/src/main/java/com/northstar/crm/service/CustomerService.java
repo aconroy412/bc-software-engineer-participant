@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+
 @Service
 public class CustomerService {
   private final Map<String, Customer> store = new ConcurrentHashMap<>();
@@ -17,11 +18,28 @@ public class CustomerService {
 
   public Customer create(Customer customer, String correlationId) {
     // TODO: reject blank id; put into store; return customer (correlation for logs/evidence)
-    throw new UnsupportedOperationException("TODO: create");
+
+    // reject blank id
+    String id = customer.getId();
+    if (id.isEmpty() || id.isBlank()) {
+      throw new IllegalArgumentException("Missing ID");
+    }
+    else {
+      store.put(id, customer);
+      return customer;
+    }
   }
 
   public Customer get(String id) {
     // TODO: return store.get or throw not-found for CUS-MISSING path
-    throw new UnsupportedOperationException("TODO: get");
+
+    Customer ret = store.get(id);
+
+    if (ret == null ) {
+      throw new IllegalArgumentException("Customer: " + id + " not found");
+    }
+    else {
+      return ret;
+    }
   }
 }

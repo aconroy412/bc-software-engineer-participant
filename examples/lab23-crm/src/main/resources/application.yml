@@ -1,14 +1,27 @@
 spring:
   application:
     # TODO: set name to northstar-crm
-    name:
+    name: northstar-crm
 server:
   # TODO: set port to 8080
-  port:
+  port: 8080
+info:
+  app:
+    name: northstar-crm
+    description: Customer Relational Management application
 management:
+  info:
+    env:
+      enabled: true
   endpoints:
     web:
       exposure:
         # TODO: expose health,info
-        include:
+        include: health, info
+  endpoint:
+    health:
+      show-details: when_authorized
 # TODO: add logging.level.com.northstar.crm: INFO
+logging:
+  level:
+    com.northstar.crm: INFO
