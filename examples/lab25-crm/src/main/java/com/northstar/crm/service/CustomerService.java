@@ -5,6 +5,7 @@ import com.northstar.crm.repository.CustomerRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CustomerService {
@@ -17,16 +18,30 @@ public class CustomerService {
   public Customer create(Customer customer, String correlationId) {
     // TODO: if existsById → throw IllegalStateException("Duplicate customer")
     // TODO: otherwise save and return (correlation for evidence/logs)
-    throw new UnsupportedOperationException("TODO: service-layer create rules");
+
+    // check if exists 
+    if (customer == null || customer.getId().isBlank() || customer.getId().isEmpty()) {
+      throw new IllegalArgumentException("Missing customer Id");
+    }
+    else if (customerRepository.existsById(customer.getId())) {
+      throw new IllegalStateException("Duplicate Customer");
+    }
+    else {
+      customerRepository.save(customer);
+      return customer;
+    }
   }
 
   public Customer get(String id) {
     // TODO: findById or throw IllegalArgumentException("Customer not found: " + id)
-    throw new UnsupportedOperationException("TODO: service-layer get");
+
+    return customerRepository.findById(id)
+        .orElseThrow(() -> new IllegalArgumentException("Customer not found: " + id));
+    
   }
 
   public List<Customer> list() {
     // TODO: return customerRepository.findAll()
-    throw new UnsupportedOperationException("TODO: list");
+    return customerRepository.findAll();
   }
 }

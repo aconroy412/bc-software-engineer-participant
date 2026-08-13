@@ -1,12 +1,26 @@
 package com.northstar.crm;
 
 import org.junit.jupiter.api.Test;
+
+import com.northstar.crm.model.Customer;
+import com.northstar.crm.repository.InMemoryCustomerRepository;
+import com.northstar.crm.service.CustomerService;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class CustomerServiceTest {
   @Test
-  void getSeededAmina() {
-    // TODO: new CustomerService(new InMemoryCustomerRepository()); assert get("CUS-1001")
-    fail("TODO");
+  void getSeededCus1001() {
+    CustomerService service = new CustomerService(new InMemoryCustomerRepository());
+    Customer amina = service.get("CUS-1001");
+    assertEquals("CUS-1001", amina.getId());
+    assertEquals("Amina Khan", amina.getName());
+  }
+
+  @Test
+  void duplicateCreateRejected() {
+    CustomerService service = new CustomerService(new InMemoryCustomerRepository());
+    assertThrows(IllegalStateException.class,
+        () -> service.create(Customer.amina(), "lab-request-001"));
   }
 }
