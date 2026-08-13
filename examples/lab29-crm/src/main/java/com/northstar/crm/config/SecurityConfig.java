@@ -4,6 +4,7 @@ import com.northstar.crm.security.JwtAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -28,6 +29,15 @@ public class SecurityConfig {
     //   /api/customers/** hasAnyRole("AGENT","ADMIN")
     //   /api/admin/** hasRole("ADMIN")
     //   anyRequest authenticated
+    .exceptionHandling(ex -> ex
+      .authenticationEntryPoint(
+        (request, response, authException) ->
+            response.sendError(
+                HttpStatus.UNAUTHORIZED.value(),
+                "Unauthorized"
+          )
+        )
+    )
     .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
     .authorizeHttpRequests(auth -> auth
         .requestMatchers("/api/auth/login").permitAll()
