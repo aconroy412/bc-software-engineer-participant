@@ -1,0 +1,1 @@
+`key` should be `CUS-1001` instead of the index because if it was the endexthen react might shift the maround and be listing them out of order or perfoming actions on components that do not need the action.
