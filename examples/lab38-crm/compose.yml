@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: crm-postgres
+    ports: ["5432:5432"]
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-crm}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change-me}
+      POSTGRES_DB: ${POSTGRES_DB:-crm}
+    volumes:
+      - crm_pgdata:/var/lib/postgresql/data
+      - ./database/ddl/02_schema.sql:/docker-entrypoint-initdb.d/01_ddl.sql
+      - ./database/performance/01_generate_data.sql:/docker-entrypoint-initdb.d/02_performance.sql
+      - ./database/performance/02_baseline.sql:/docker-entrypoint-initdb.d/03_analyze.sql
+      - ./database/performance/03_indexes.sql:/docker-entrypoint-initdb.d/04_indexes.sql
+      - ./database/performance/04_optimized.sql:/docker-entrypoint-initdb.d/05_optimized.sql
+
+volumes:
+  crm_pgdata:

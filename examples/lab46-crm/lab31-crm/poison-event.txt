@@ -1,0 +1,1 @@
+CUS-1001|{"eventId":"lab46-dlt-test-001","eventType":"CUSTOMER_STATUS_CHANGED","eventVersion":2,"occurredAt":"2026-08-25T18:50:00Z","customerId":"CUS-1001","correlationId":"lab-request-001","source":"lab46","data":{"fullName":"Amina Khan","status":"ACTIVE"}}
